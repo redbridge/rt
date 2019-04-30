@@ -48,130 +48,238 @@
 <form name="EditAboutMe" action="" method="post">
 <input type="hidden" class="hidden" name="id" value="<%$UserObj->Id%>" />
 
-<table width="100%" border="0">
-<tr>
-<td valign="top" class="boxcontainer">
-<&| /Widgets/TitleBox, title => loc('Identity'), id => "user-prefs-identity" &>
-<input type="hidden" class="hidden" name="Name" value="<%$UserObj->Name%>" />
-<table cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="label"><&|/l&>Email</&>: </td>
-    <td class="value"><input type="text" name="EmailAddress" value="<%$UserObj->EmailAddress%>" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Real Name</&>:</td>
-    <td class="value"><input type="text" name="RealName" value="<%$UserObj->RealName%>" /></td>  </tr>
-  <tr>
-    <td class="label"><&|/l&>Nickname</&>:</td>
-    <td class="value"><input type="text" name="NickName" value="<%$UserObj->NickName || ''%>" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Language</&>:</td>
-    <td class="value"><& /Elements/SelectLang, Name => 'Lang', Default => $UserObj->Lang &></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Timezone</&>:</td>
-    <td class="value"><& /Elements/SelectTimezone, Name => 'Timezone', Default => $UserObj->Timezone &></td>
-  </tr>
-<& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Identity', InTable => 1 &>
-</table>
-</&>
-<&| /Widgets/TitleBox, title => loc('Phone numbers'), id => "user-prefs-phone" &>
-<table cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="label"><&|/l&>Residence</&>:</td>
-    <td class="value"><input type="tel" name="HomePhone" value="<%$UserObj->HomePhone || ''%>" size="13" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Work</&>:</td>
-    <td class="value"><input type="tel" name="WorkPhone" value="<%$UserObj->WorkPhone || ''%>" size="13" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Mobile</&>:</td>
-    <td class="value"><input type="tel" name="MobilePhone" value="<%$UserObj->MobilePhone || ''%>" size="13" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Pager</&>:</td>
-    <td class="value"><input type="tel" name="PagerPhone" value="<%$UserObj->PagerPhone || ''%>" size="13" /></td>
-  </tr>
-<& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Phones', InTable => 1 &>
-</table>
-</&>
+<div class="col-md-12">
+  <div class="form-row">
+    <div class="col-md-8">
+      <&| /Widgets/TitleBox, title => loc('Identity'), id => "user-prefs-identity" &>
+        <input type="hidden" class="hidden" name="Name" value="<%$UserObj->Name%>" />
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Email</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="EmailAddress" value="<%$UserObj->EmailAddress%>" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Real Name</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="RealName" value="<%$UserObj->RealName%>" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Nickname</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="NickName" value="<%$UserObj->NickName || ''%>" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Language</&>:
+          </div>
+          <div class="col-md-9 value">
+            <& /Elements/SelectLang, Name => 'Lang', Default => $UserObj->Lang &>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Timezone</&>:
+          </div>
+          <div class="col-md-9 value">
+            <& /Elements/SelectTimezone, Name => 'Timezone', Default => $UserObj->Timezone &>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-12">
+            <& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Identity', InTable => 1 &>
+          </div>
+        </div>
+      </&>
+    </div>
+
+    <div class="col-md-4">
+      <&| /Widgets/TitleBox, title => loc('Phone numbers'), id => "user-prefs-phone" &>
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Residence</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="tel" name="HomePhone" value="<%$UserObj->HomePhone || ''%>" size="13" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Work</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="tel" name="WorkPhone" value="<%$UserObj->WorkPhone || ''%>" size="13" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Mobile</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input type="tel" name="MobilePhone" value="<%$UserObj->MobilePhone || ''%>" size="13" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Pager</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="tel" name="PagerPhone" value="<%$UserObj->PagerPhone || ''%>" size="13" />
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="label col-md-12">
+            <& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Phones', InTable => 1 &>
+          </div>
+        </div>
+      </&>
+    </div>
+  </div>
+
+  <div class="form-row">
 %if ($UserObj->Privileged) {
-<&| /Widgets/TitleBox, title => loc('Signature'), id => "user-prefs-signature" &>
-<textarea cols="80" rows="5" name="Signature" class="signature" wrap="hard">
-<%$UserObj->Signature || ''%></textarea>
-</&>
+    <div class="col-md-4">
+      <&| /Widgets/TitleBox, title => loc('Signature'), id => "user-prefs-signature" &>
+        <textarea class="form-control" cols="80" rows="5" name="Signature" class="signature" wrap="hard">
+        <%$UserObj->Signature || ''%></textarea>
+      </&>
+    </div>
 % }
 
 % $m->callback( %ARGS, UserObj => $UserObj, CallbackName => 'FormLeftColumn' );
 
-</td>
-<td valign="top" class="boxcontainer">
-<&| /Widgets/TitleBox, title => loc( $AccessControlName ), id => "user-prefs-access-control" &>
+    <div class="col-md-4">
+      <&| /Widgets/TitleBox, title => loc( $AccessControlName ), id => "user-prefs-access-control" &>
 % if ( $UserObj->__Value('Password') ne '*NO-PASSWORD*' ) {
-<& /Elements/EditPassword,
-    User => $UserObj,
-    Name => $PasswordName,
-&>
+        <& /Elements/EditPassword,
+          User => $UserObj,
+          Name => $PasswordName,
+        &>
 % }
-<& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Access control' &>
-</&>
+        <& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Access control' &>
+      </&>
+    </div>
 
 %my $AdminUser = $session{'CurrentUser'}->HasRight( Object => RT->System, Right => 'AdminUsers' );
-<&| /Widgets/TitleBox, title => loc('Location'), id => "user-prefs-location" &>
-<table cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="label"><&|/l&>Organization</&>:</td>
+    <div class="col-md-4">
+      <&| /Widgets/TitleBox, title => loc('Location'), id => "user-prefs-location" &>
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Organization</&>:
+          </div>
+          <div class="col-md-9 value">
 %if ( $AdminUser ) {
-    <td class="value"><input type="text" name="Organization" value="<%$UserObj->Organization || ''%>" /></td>
+            <input class="form-row" type="text" name="Organization" value="<%$UserObj->Organization || ''%>" />
 %} else {
-    <td class="value"><%$UserObj->Organization || ''%></td>
+            <%$UserObj->Organization || ''%>
 %}
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Address1</&>:</td>
-    <td class="value"><input type="text" name="Address1" value="<%$UserObj->Address1 || ''%>" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Address2</&>:</td>
-    <td class="value"><input type="text" name="Address2" value="<%$UserObj->Address2 || ''%>" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>City</&>:</td>
-    <td><input type="text" name="City" value="<%$UserObj->City || ''%>" size="14" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>State</&>:</td>
-    <td class="value"><input type="text" name="State" value="<%$UserObj->State || ''%>" size="3" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Zip</&>:</td>
-    <td class="value"><input type="text" name="Zip" value="<%$UserObj->Zip || ''%>" size="9" /></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Country</&>:</td>
-    <td class="value"><input type="text" name="Country" value="<%$UserObj->Country || ''%>" /></td>
-  </tr>
-<& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Location', InTable => 1 &>
-</table>
-</&>
-<& /Elements/EditCustomFieldCustomGroupings, Object => $UserObj &>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Address1</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="Address1" value="<%$UserObj->Address1 || ''%>" />
+          </div>
+        </div>
 
-<& /Elements/Submit, Label => loc('Save Preferences') &>
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Address2</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input type="text" name="Address2" value="<%$UserObj->Address2 || ''%>" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>City</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="City" value="<%$UserObj->City || ''%>" size="14" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>State</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="State" value="<%$UserObj->State || ''%>" size="3" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Zip</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input type="text" name="Zip" value="<%$UserObj->Zip || ''%>" size="9" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label col-md-3">
+            <&|/l&>Country</&>:
+          </div>
+          <div class="col-md-9 value">
+            <input class="form-control" type="text" name="Country" value="<%$UserObj->Country || ''%>" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-12">
+            <& /Elements/EditCustomFields, Object => $UserObj, Grouping => 'Location', InTable => 1 &>
+          </div>
+        </div>
+      </&>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12">
+      <& /Elements/EditCustomFieldCustomGroupings, Object => $UserObj &>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12">
+      <& /Elements/Submit, Label => loc('Save Preferences') &>
+    </div>
+  </div>
 
 %if ( $AdminUser ) {
-<&| /Widgets/TitleBox, title => loc('Secret authentication token'), id => "user-prefs-feeds" &>
+  <div class="form-row">
+    <div class="col-md-12">
+      <&| /Widgets/TitleBox, title => loc('Secret authentication token'), id => "user-prefs-feeds" &>
 
-<&|/l&>All iCal feeds embed a secret token which authorizes you.  If the URL for one of your iCal feeds was exposed to the outside world, you can get a new secret, <b>breaking all existing iCal feeds</b>, below.</&>
+        <&|/l&>All iCal feeds embed a secret token which authorizes you.  If the URL for one of your iCal feeds was exposed to the outside world, you can get a new secret, <b>breaking all existing iCal feeds</b>, below.</&>
 
-<a href="#" id="ResetAuthTokenPrompt" style="display: none">
-  <&|/l&>I want to reset my secret token.</&>
-</a>
-<& /Elements/Submit,
-    Label       => loc('Reset secret authentication token'),
-    Name        => "ResetAuthToken",
-    id          => "ResetAuthTokenContainer" &>
+        <a href="#" id="ResetAuthTokenPrompt" style="display: none">
+          <&|/l&>I want to reset my secret token.</&>
+        </a>
+        <& /Elements/Submit,
+            Label       => loc('Reset secret authentication token'),
+            Name        => "ResetAuthToken",
+            id          => "ResetAuthTokenContainer" &>
 <script>
     jQuery("#ResetAuthTokenContainer").hide();
     jQuery("#ResetAuthTokenPrompt").show().click(function(ev){
@@ -180,13 +288,13 @@
         ev.preventDefault();
     });
 </script>
-</&>
+      </&>
+    </div>
+  </div>
 %}
 
 % $m->callback( %ARGS, UserObj => $UserObj, CallbackName => 'FormRightColumn' );
-</td>
-</tr>
-</table>
+</div>
 
 <%ARGS>
 $UserObj

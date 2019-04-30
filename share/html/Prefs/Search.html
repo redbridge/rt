@@ -49,6 +49,8 @@
 <& /Elements/Tabs
 &>
 <& /Elements/ListActions, actions => \@actions &>
+
+<div class="col-md-12">
 % if ($session{'CurrentUser'}->HasRight( Object=> $RT::System, Right => 'SuperUser')) {
 <p>
   <&|/l&>You can also edit the predefined search itself</&>:
@@ -62,10 +64,11 @@
 <input type="hidden" name="name" value="<%$ARGS{name}%>" class="hidden" />
 <input type="hidden" name="Format" value="<%$ARGS{Format}%>" class="hidden" />
 
-<& /Search/Elements/DisplayOptions, %$SearchArg, %ARGS,
-   AvailableColumns => $AvailableColumns, CurrentFormat => $CurrentFormat &>
-<& /Elements/Submit, Caption => loc("Save Changes"), Label => loc('Save'), Name => 'Save'&>
-
+  <div class="form-row">
+    <& /Search/Elements/DisplayOptions, %$SearchArg, %ARGS,
+      AvailableColumns => $AvailableColumns, CurrentFormat => $CurrentFormat &>
+    <& /Elements/Submit, Caption => loc("Save Changes"), Label => loc('Save'), Name => 'Save'&>
+  </div>
 </form>
 
 <&|/Widgets/TitleBox, title => loc("Reset") &>
@@ -75,7 +78,7 @@
 <input type="submit" class="button" name="ResetSearchOptions" value="<% loc('Reset to default') %>">
 </form>
 </&>
-
+</div>
 <%INIT>
 my @actions;
 my $title = loc("Customize").' ';
