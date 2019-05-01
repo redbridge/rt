@@ -24,6 +24,11 @@ Description: color picker icon
 Origin: http://thenounproject.com/noun/eye-dropper/ (The Noun Project)
 License: CC BY 3.0
 
+* Inter-3.5
+Description: Inter font(web hinted)
+Origin: https://github.com/rsms/inter/
+License: SIL Open Font
+
 * jquery-1.11.3.js
 Description: DOM manipulation
 Origin: http://code.jquery.com/jquery-1.11.3.js
