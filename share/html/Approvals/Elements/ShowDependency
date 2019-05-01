@@ -49,9 +49,9 @@
 % if ($approving->Count) {
 <h3><&|/l&>Tickets which depend on this approval:</&></h3>
 
-<table width="100%">
-<tr>
-<td width="25" bgcolor="#999999">&nbsp;</td><td>
+<div class="col-md-12">
+  <div class="form-row">
+    <div class="col-md-12" width="25" bgcolor="#999999">&nbsp;</div>
 <%PERL>
 my %show;
 while (my $link = $approving->Next()) {

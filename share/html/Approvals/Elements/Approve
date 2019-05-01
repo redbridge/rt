@@ -45,7 +45,7 @@
 %# those contributions and any derivatives thereof.
 %#
 %# END BPS TAGGED BLOCK }}}
-<div class="approval">
+<div class="approval col-md-12">
   <div class="name">
     <a href="<%RT->Config->Get('WebPath')%>/Approvals/Display.html?id=<%$ticket->Id%>"><% loc("#[_1]: [_2]", $ticket->Id, $ticket->Subject) %></a> (<%loc($ticket->Status)%>)
   </div>
