@@ -54,47 +54,68 @@
 % if ( $pref eq 'edit-prefs' || $pref eq 'edit-prefs-view-info' ) {
 <form method="post">
 
-<table width="100%" border="0">
-<tr>
-<td valign="top" class="boxcontainer" width=50%>
-<&| /Widgets/TitleBox, title => loc('Locale'), id => "user-prefs-identity" &>
-<table cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="label"><&|/l&>Language</&>:</td>
-    <td class="value"><& /Elements/SelectLang, Name => 'Lang', Default => $user->Lang &></td>
-  </tr>
-  <tr>
-    <td class="label"><&|/l&>Timezone</&>:</td>
-    <td class="value"><& /Elements/SelectTimezone, Name => 'Timezone', Default => $user->Timezone &></td>
-  </tr>
-</table>
-</&>
-</td>
-<td valign="top">
-<&| /Widgets/TitleBox, title => loc('Change password')  &>
-% if ( $user->__Value('Password') ne '*NO-PASSWORD*' ) {
-<& /Elements/EditPassword,
-    User => $user,
-    Name => $password,
-&>
-% }
-</&>
+<div class="col-md-12">
+  <&| /Widgets/TitleBox, title => loc('Locale'), id => "user-prefs-identity" &>
+    <div class="form-row">
+      <div class="col-md-3 label">
+        <&|/l&>Language</&>:
+      </div>
+      <div class="col-md-9">
+        <& /Elements/SelectLang, Name => 'Lang', Default => $user->Lang &>
+      </div>
+    </div>
 
-</td></tr></table>
-<br />
-<& /Elements/Submit, Label => loc('Save Changes') &>
+    <div class="form-row">
+      <div class="col-md-3 label">
+        <&|/l&>Timezone</&>:
+      </div>
+      <div class="col-md-9">
+        <& /Elements/SelectTimezone, Name => 'Timezone', Default => $user->Timezone &>
+      </div>
+    </div>
+  </&>
+</div>
+
+<div class="col-md-12">
+  <&| /Widgets/TitleBox, title => loc('Change password')  &>
+% if ( $user->__Value('Password') ne '*NO-PASSWORD*' ) {
+    <div class="form-row">
+      <& /Elements/EditPassword,
+        User => $user,
+        Name => $password,
+      &>
+    </div>
+% }
+  </&>
+</div>
+
+<div class="form-row">
+  <div class="col-md-12">
+    <br />
+    <& /Elements/Submit, Label => loc('Save Changes') &>
+  </div>
+</div>
+
 </form>
 
 % }
 % if ( $pref eq 'view-info' || $pref eq 'edit-prefs-view-info' ) {
 <& /Prefs/Elements/ShowAboutMe, UserObj => $user &>
 %    if ( $request_queue->id ) {
-<& Elements/RequestUpdate, User=> $user &>
+<div class="form-row">
+  <div class="col-md-12">
+    <& Elements/RequestUpdate, User=> $user &>
+  </div>
+</div>
 %    }
 % }
 
 % if( RT->Config->Get('SelfServiceDownloadUserData') ) {
-<& /SelfService/User/Elements/RelatedData, UserObj => $user &>
+<div class="form-row">
+  <div class="col-md-12">
+    <& /SelfService/User/Elements/RelatedData, UserObj => $user &>
+  </div>
+</div>
 % }
 
 <%INIT>
