@@ -107,11 +107,11 @@ diag "checking parent ticket for expected timeworked data"; {
         "found expected total TimeWorked in parent ticket"
     );
     $m->content_like(
-        qr{(?s)user_a:.+?value">1\.33 hours \(80 minutes\)},
+        qr{(?s)user_a:.+1\.33 hours \(80 minutes\)},
         "found expected user_a TimeWorked in parent ticket"
     );
     $m->content_like(
-        qr{(?s)user_b:.+?value">1\.5 hours \(90 minutes\)},
+        qr{(?s)user_b:.+1\.5 hours \(90 minutes\)},
         "found expected user_b TimeWorked in parent ticket"
     );
 }
@@ -124,7 +124,7 @@ diag "checking child ticket 1 for expected timeworked data"; {
         "found expected total TimeWorked in child ticket 1"
     );
     $m->content_like(
-        qr{(?s)user_a:.+?value">45 minutes},
+        qr{(?s)user_a:.+45 minutes},
         "found expected user_a TimeWorked in child ticket 1"
     );
 }
@@ -137,11 +137,11 @@ diag "checking child ticket 2 for expected timeworked data"; {
         "found expected total TimeWorked in child ticket 2"
     );
     $m->content_like(
-        qr{(?s)user_a:.+?value">35 minutes},
+        qr{(?s)user_a:.+35 minutes},
         "found expected user_a TimeWorked in child ticket 2"
     );
     $m->content_like(
-        qr{(?s)user_b:.+?value">1\.5 hours \(90 minutes\)},
+        qr{(?s)user_b:.+1\.5 hours \(90 minutes\)},
         "found expected user_b TimeWorked in child ticket 2"
     );
 }
