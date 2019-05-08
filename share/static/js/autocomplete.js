@@ -22,6 +22,7 @@ Selectize.define('rt_drag_drop', function(options) {
                 var self = input.selectize()[0].selectize;
                 var value = ui.item.attr('data-value');
                 self.createItem(value, false);
+                self.getItem(value).children('span').text(ui.item.children('span').text());
                 self.getItem(value).insertBefore(ui.item);
                 ui.item.remove();
                 self.setCaret(self.items.length);
@@ -68,7 +69,7 @@ window.RT.Autocomplete.bind = function(from) {
                         return '<div class="option">' + escape(data.label) + '</div>';
                     },
                     item: function(data, escape) {
-                        return '<div class="item">' + escape(data.label) + '</div>';
+                        return '<div class="item">' + '<span>' + escape(data.label) + '</span></div>';
                     }
                 },
                 onItemRemove: function(value) {
