@@ -915,7 +915,7 @@ sub _CanonicalizeRoleName {
         # Generic:
         my $no_value = $self->loc("(no value)");
         return (
-            "[_1] changed from [_2] to [_3]",
+            "[_1] changed from [_2] to [_3] XXX",
             $self->Field,
             ( $self->OldValue ? "'" . $self->OldValue . "'" : $no_value ),
             "'" . $self->NewValue . "'"
