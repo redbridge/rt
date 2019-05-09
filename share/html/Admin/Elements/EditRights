@@ -174,28 +174,27 @@ if ($anchor =~ /AddPrincipal/) {
 
 <div class="rights-editor clearfix">
   <input type="hidden" value="" name="Anchor" />
-
-  <ul>
+  <ul class="list-group">
 <%perl>
 for my $category (@$Principals) {
     my ($name, $collection, $col, $loc) = @$category;
 </%perl>
-<li class="category"><% loc($name) %></li>
+<li class="category list-group-item"><% loc($name) %></li>
 <%perl>
     while ( my $obj = $collection->Next ) {
         my $display = ref $col eq 'CODE' ? $col->($obj) : $obj->$col;
         my $id = "acl-" . $obj->PrincipalId;
 </%perl>
-<li><a href="#<% $id %>"><span class="rights-editor-label" id="<% "principal-tab-$id" %>"><% $loc ? loc($display) : $display %></span></a></li>
+<li class="list-group-item"><a href="#<% $id %>"><span class="rights-editor-label" id="<% "principal-tab-$id" %>"><% $loc ? loc($display) : $display %></span></a></li>
 <%perl>
     }
 }
 </%perl>
 % if ( $AddPrincipal ) {
-    <li class="category"><&|/l, loc($AddPrincipal) &>Add [_1]</&></li>
-    <li class="addprincipal">
+    <li class="category list-group-item"><&|/l, loc($AddPrincipal) &>Add [_1]</&></li>
+    <li class="addprincipal list-group-item">
       <a href="#acl-AddPrincipal">
-        <input type="text" value=""
+        <input type="text" value="" class="form-control"
             data-autocomplete="<% lc $AddPrincipal eq 'user' ? 'Users' : 'Groups' %>"
 % if ( lc $AddPrincipal eq 'user' ) {
             data-autocomplete-return="Name"
